@@ -4,38 +4,49 @@
 */
 const cards = document.querySelector('.cards');
 
-const calendar = document.querySelector('.calendar')
+const calendar = document.querySelector('.calendar');
+calendar.classList.add("calendar-hide");
 const calendarBtn = document.createElement('button');
 calendarBtn.textContent = "Change Calendar View";
+calendarBtn.style.margin = "0 39%";
 cards.appendChild(calendarBtn);
 
 calendarBtn.addEventListener('click', () => {
   calendar.classList.toggle("calendar-hide");
 })
 
+const subBtn = document.querySelector(".subButton");
+const subForm = document.querySelector(".userInput");
 
-axios.get("https://api.github.com/users/amguenoun")
-  .then(response => {
-    createCard(response.data);
-    axios.get(response.data.followers_url)
-      .then(secondResponse => {
-        secondResponse.data.forEach(item => {
-          axios.get(item.url)
-            .then(thirdResponse => {
-              createCard(thirdResponse.data);
-            })
-            .catch(err => {
-              console.log(err);
-            });
+
+subBtn.addEventListener('click', () => {
+  let inputName = subForm.value;
+  let finalValue = "https://api.github.com/users/" + inputName;
+  axios.get(finalValue)
+    .then(response => {
+      createCard(response.data);
+      axios.get(response.data.followers_url)
+        .then(secondResponse => {
+          secondResponse.data.forEach(item => {
+            axios.get(item.url)
+              .then(thirdResponse => {
+                createCard(thirdResponse.data);
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          })
         })
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  })
-  .catch(err => {
-    console.log(err);
-  });
+        .catch(err => {
+          console.log(err);
+        });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+})
+
+
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
