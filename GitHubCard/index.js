@@ -76,5 +76,10 @@ function createCard(object) {
   const cardFollowing = document.createElement('p');
   const cardBio = document.createElement('p');
 
+  //Assign Classes
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  cardName.classList.add('name');
+  cardUserName.classList.add('username');
 
 }
