@@ -86,7 +86,7 @@ function createCard(object) {
   card.appendChild(cardImage);
   card.appendChild(cardInfo);
   cardInfo.appendChild(cardName);
-  cardInfo.appendChild(cardUsername);
+  cardInfo.appendChild(cardUserName);
   cardInfo.appendChild(cardLocation);
   cardInfo.appendChild(cardProfile);
   cardProfile.appendChild(cardLink);
@@ -108,3 +108,40 @@ function createCard(object) {
 
   return card;
 }
+
+const data = {
+  "login": "amguenoun",
+  "id": 45905506,
+  "node_id": "MDQ6VXNlcjQ1OTA1NTA2",
+  "avatar_url": "https://avatars0.githubusercontent.com/u/45905506?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/amguenoun",
+  "html_url": "https://github.com/amguenoun",
+  "followers_url": "https://api.github.com/users/amguenoun/followers",
+  "following_url": "https://api.github.com/users/amguenoun/following{/other_user}",
+  "gists_url": "https://api.github.com/users/amguenoun/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/amguenoun/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/amguenoun/subscriptions",
+  "organizations_url": "https://api.github.com/users/amguenoun/orgs",
+  "repos_url": "https://api.github.com/users/amguenoun/repos",
+  "events_url": "https://api.github.com/users/amguenoun/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/amguenoun/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": "Ahmad Guenoun",
+  "company": null,
+  "blog": "",
+  "location": null,
+  "email": null,
+  "hireable": null,
+  "bio": null,
+  "public_repos": 18,
+  "public_gists": 0,
+  "followers": 16,
+  "following": 5,
+  "created_at": "2018-12-15T22:18:19Z",
+  "updated_at": "2019-08-08T19:12:35Z"
+}
+
+const cards = document.querySelector('.cards');
+cards.appendChild(createCard(data));
