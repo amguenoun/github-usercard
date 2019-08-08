@@ -20,6 +20,12 @@ const subForm = document.querySelector(".userInput");
 
 
 subBtn.addEventListener('click', () => {
+  const cardsList = document.querySelectorAll(".card");
+  if (cardsList.length > 0) {
+    cardsList.forEach((item) => {
+      item.remove();
+    })
+  }
   let inputName = subForm.value;
   let finalValue = "https://api.github.com/users/" + inputName;
   axios.get(finalValue)
