@@ -2,6 +2,17 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+const cards = document.querySelector('.cards');
+
+const calendar = document.querySelector('.calendar')
+const calendarBtn = document.createElement('button');
+calendarBtn.textContent = "Change Calendar View";
+cards.appendChild(calendarBtn);
+
+calendarBtn.addEventListener('click', () => {
+  calendar.classList.toggle("calendar-hide");
+})
+
 
 axios.get("https://api.github.com/users/amguenoun")
   .then(response => {
@@ -53,7 +64,6 @@ axios.get("https://api.github.com/users/amguenoun")
 
 */
 
-const cards = document.querySelector('.cards');
 
 function createCard(object) {
   //Creating Elements
@@ -126,3 +136,4 @@ function createCard(object) {
 //       console.log(err);
 //     })
 // });
+
