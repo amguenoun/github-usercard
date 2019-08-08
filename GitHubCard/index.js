@@ -93,4 +93,16 @@ function createCard(object) {
   cardInfo.appendChild(cardFollowers);
   cardInfo.appendChild(cardFollowing);
   cardInfo.appendChild(cardBio);
+
+  //Assign Content
+  cardImage.src = object.avatar_url;
+  cardName.textContent = object.name;
+  cardUserName.textContent = object.login;
+  cardLocation.textContent = `Location: ${object.location}`;
+  cardProfile.textContent = 'Profile: ';
+  cardLink.href = object.html_url;
+  cardLink.textContent = object.html_url;
+  cardFollowers.textContent = `Followers: ${object.followers}`;
+  cardFollowing.textContent = `Following: ${object.following}`;
+  cardBio.textContent = `Bio: ${object.bio}`;
 }
