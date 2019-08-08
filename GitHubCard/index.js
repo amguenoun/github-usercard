@@ -105,4 +105,6 @@ function createCard(object) {
   cardFollowers.textContent = `Followers: ${object.followers}`;
   cardFollowing.textContent = `Following: ${object.following}`;
   cardBio.textContent = `Bio: ${object.bio}`;
+
+  return card;
 }
