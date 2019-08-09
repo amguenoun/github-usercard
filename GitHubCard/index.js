@@ -27,6 +27,7 @@ subBtn.addEventListener('click', () => {
     })
   }
   let inputName = subForm.value;
+  new GitHubCalendar(".calendar", inputName);
   let finalValue = "https://api.github.com/users/" + inputName;
   axios.get(finalValue)
     .then(response => {
