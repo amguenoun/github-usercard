@@ -8,7 +8,7 @@ const calendar = document.querySelector('.calendar');
 calendar.classList.add("calendar-hide");
 const calendarBtn = document.createElement('button');
 calendarBtn.textContent = "Change Calendar View";
-calendarBtn.style.margin = "0 39%";
+calendarBtn.style.margin = "3% 39%";
 cards.appendChild(calendarBtn);
 
 calendarBtn.addEventListener('click', () => {
@@ -17,7 +17,11 @@ calendarBtn.addEventListener('click', () => {
 
 const subBtn = document.querySelector(".subButton");
 const subForm = document.querySelector(".userInput");
-
+const followerDivision = document.createElement('p');
+followerDivision.textContent = "My Followers";
+followerDivision.style.textAlign = "center";
+followerDivision.style.fontSize = "4rem";
+followerDivision.style.marginBottom = "3%";
 
 subBtn.addEventListener('click', () => {
   const cardsList = document.querySelectorAll(".card");
@@ -32,6 +36,7 @@ subBtn.addEventListener('click', () => {
   axios.get(finalValue)
     .then(response => {
       createCard(response.data);
+      cards.appendChild(followerDivision);
       axios.get(response.data.followers_url)
         .then(secondResponse => {
           secondResponse.data.forEach(item => {
