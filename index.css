@@ -124,4 +124,6 @@ body {
 }
 
 
-
+.calendar-hide{
+  display:none;
+}
